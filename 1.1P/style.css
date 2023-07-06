@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.nav-bar {
+    background-color: white;
+    padding: 1.5rem;
+}
+
+.nav-text {
+    padding: 20px;
+    text-decoration: none;
+}
+
+.header-image {
+    height: 50vh; /* Set the height to 50% of the viewport height */
+    overflow: hidden; /* Hide any overflow of the image */
+    text-align: center;
+}
+
+.header-image img {
+    height: 100%; /* Make the image cover the entire height of the header */
+    object-fit: cover; /* Maintain aspect ratio and crop the image */
+    object-position: center; /* Center the image within the header */
+}
+
+.header-text {
+    position: absolute;
+    top: 40vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px 0px;
+}
+
+.profile-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.profile-section img {
+    display: block;
+    margin: 0 auto;
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Set height equal to width to create a square */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Maintain aspect ratio while cropping the image */
+    object-position: center; /* Center the image within the circle */
+}
+
+.job-description {
+    margin-top: 20px;
+}
+
+.job-description span {
+    display: block;
+}
+
+.decoration-line {
+    width: 20%;
+    height: 2px;
+    background-color: black;
+    margin: 3rem auto;
+}
+
+.projects-list {
+    text-align: center;
+}
+
+.projects-list h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.projects-list {
+    text-align: center;
+    margin-top: 40px;
+    max-width: 800px; /* Set the maximum width as desired */
+    margin-left: auto; /* Center the section horizontally */
+    margin-right: auto;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    text-align: center; /* Center the content horizontally */
+}
+
+.project-item img {
+    width: 350px; /* Adjust the width as needed */
+    height: 250px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and crop the image */
+    object-position: center; /* Center the image within the container */
+    border-radius: 8px;
+    margin-right: 20px; /* Add margin to create space between the image and text */
+}
+
+.project-item-content {
+    text-align: left; /* Align the text to the left */
+}
+
+.project-item h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px; /* Add margin below the heading */
+}
+
+.project-item p {
+    font-size: 16px;
+    margin-top: 0;
+}
