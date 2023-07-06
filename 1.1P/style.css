@@ -111,3 +111,69 @@ body {
     font-size: 16px;
     margin-top: 0;
 }
+
+.image-gallery {
+    text-align: center;
+}
+.image-gallery h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.image-grid {
+    text-align: center;
+    margin-top: 40px;
+    max-width: 1000px; /* Set the maximum width as desired */
+    margin-left: auto; /* Center the section horizontally */
+    margin-right: auto;
+}
+
+.image-grid h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%; /* Make the images fill the container */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Set the desired number of columns for the image gallery */
+@media (max-width: 600px) {
+    .projects-list {
+        max-width: 400px; /* Adjust the maximum width for small screens */
+    }
+    
+    .project-item {
+        flex-direction: column; /* Stack the image and content vertically */
+    }
+    
+    .project-item img {
+        margin-right: 0; /* Remove the margin on small screens */
+        margin-bottom: 20px; /* Add margin between the image and content */
+        width: 100%; /* Adjust the image width to fill the container */
+        height: auto; /* Let the image height be auto to maintain aspect ratio */
+    }
+}
+
+@media (min-width: 750px) {
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Display 2 columns */
+        grid-gap: 20px; /* Add spacing between the images */
+    }
+}
+
+@media (min-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr); /* Display 3 columns */
+    }
+}
