@@ -1,2 +1,2 @@
-# SIT313
+# SIT313 - Full Stack Development: Secure Frontend Applications
  
