@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Welcome to DevLink</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Welcome to DevLink</h1>
-    <form action="/subscribe" method="post">
-      <div class="row">
-        <div class="col-md-6">
-          <label for="email">Please enter your email</label>
-          <input type="email" class="form-control" id="email" required>
+  <head>
+    <title>Welcome to DevLink</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to DevLink</h1>
+      <form action="/subscribe" method="post">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="email">Please enter your email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
         </div>
-      </div>
-      <button type="button" class="btn btn-primary" onclick="subscribe()">Subscribe</button>
-    </form>
-  </div>
+        <button type="button" class="btn btn-primary" onclick="subscribe()">
+          Subscribe
+        </button>
+      </form>
+    </div>
 
-  <script>
-    function subscribe() {
-      const email = document.getElementById("email").value;
+    <script>
+      function subscribe() {
+        const email = document.getElementById("email").value;
 
-      fetch("/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      })
+        // Check if the email field is empty
+        if (!email) {
+          showErrorMessage("Email is required");
+          return;
+        }
 
-      .then(response => response.json())
+        fetch("/subscribe", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        })
+          .then((response) => response.json())
 
-      .then(data => {
-        console.log(data.message);
-        showSuccessMessage();
-      })
-      
-      .catch(error => {
-        console.error(error);
-        showErrorMessage();
-      });
-    }
+          // Display success message if email is sent
+          .then((data) => {
+            console.log(data.message);
+            showSuccessMessage();
+          })
 
-    function showSuccessMessage() {
-      const container = document.querySelector(".container");
-      container.innerHTML = `<div class="alert alert-success mt-3" role="alert">Welcome email sent successfully! Check your inbox.</div>`;
-    }
+          // Display error message if email failed
+          .catch((error) => {
+            console.error(error);
+            showErrorMessage("An error occurred. Please try again.");
+          });
+      }
 
-    function showErrorMessage() {
-      const container = document.querySelector(".container");
-      container.innerHTML = `<div class="alert alert-danger mt-3" role="alert">An error occurred. Please try again.</div>`;
-    }
-  </script>
-</body>
+      // Success message
+      function showSuccessMessage() {
+        const container = document.querySelector(".container");
+        container.innerHTML = `<div class="alert alert-success mt-3" role="alert">Welcome email sent successfully! Check your inbox.</div>`;
+      }
+
+      // Error message
+      function showErrorMessage(message) {
+        const container = document.querySelector(".container");
+        container.innerHTML = `<div class="alert alert-danger mt-3" role="alert">${message}</div>`;
+      }
+    </script>
+  </body>
 </html>
