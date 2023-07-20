@@ -1,179 +1,178 @@
 body {
-    margin: 0;
-    font-family: Arial;
+  margin: 0;
+  font-family: Arial;
 }
 
 .nav-bar {
-    background-color: white;
-    padding: 1.5rem;
+  background-color: white;
+  padding: 1.5rem;
 }
 
 .nav-text {
-    padding: 20px;
-    text-decoration: none;
+  padding: 20px;
+  text-decoration: none;
 }
 
 .header-image {
-    height: 50vh; /* Set the height to 50% of the viewport height */
-    overflow: hidden; /* Hide any overflow of the image */
-    text-align: center;
+  height: 50vh;
+  overflow: hidden;
+  text-align: center;
 }
 
 .header-image img {
-    height: 100%; /* Make the image cover the entire height of the header */
-    object-fit: cover; /* Maintain aspect ratio and crop the image */
-    object-position: center; /* Center the image within the header */
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .header-text {
-    position: absolute;
-    top: 40vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 20px 0px;
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px 0px;
 }
 
 .profile-section {
-    text-align: center;
-    margin-top: 40px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .profile-section img {
-    display: block;
-    margin: 0 auto;
-    width: 200px; /* Adjust the width as needed */
-    height: 200px; /* Set height equal to width to create a square */
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover; /* Maintain aspect ratio while cropping the image */
-    object-position: center; /* Center the image within the circle */
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .job-description {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .job-description span {
-    display: block;
+  display: block;
 }
 
 .decoration-line {
-    width: 20%;
-    height: 2px;
-    background-color: black;
-    margin: 3rem auto;
+  width: 20%;
+  height: 2px;
+  background-color: black;
+  margin: 3rem auto;
 }
 
 .projects-list {
-    text-align: center;
+  text-align: center;
 }
 
 .projects-list h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .projects-list {
-    text-align: center;
-    margin-top: 40px;
-    max-width: 800px; /* Set the maximum width as desired */
-    margin-left: auto; /* Center the section horizontally */
-    margin-right: auto;
+  text-align: center;
+  margin-top: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    text-align: center; /* Center the content horizontally */
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .project-item img {
-    width: 350px; /* Adjust the width as needed */
-    height: 250px; /* Adjust the height as needed */
-    object-fit: cover; /* Maintain aspect ratio and crop the image */
-    object-position: center; /* Center the image within the container */
-    border-radius: 8px;
-    margin-right: 20px; /* Add margin to create space between the image and text */
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-right: 20px;
 }
 
 .project-item-content {
-    text-align: left; /* Align the text to the left */
+  text-align: left;
 }
 
 .project-item h3 {
-    font-size: 18px;
-    margin-top: 0;
-    margin-bottom: 10px; /* Add margin below the heading */
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .project-item p {
-    font-size: 16px;
-    margin-top: 0;
+  font-size: 16px;
+  margin-top: 0;
 }
 
 .image-gallery {
-    text-align: center;
+  text-align: center;
 }
 .image-gallery h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .image-grid {
-    text-align: center;
-    margin-top: 40px;
-    max-width: 1000px; /* Set the maximum width as desired */
-    margin-left: auto; /* Center the section horizontally */
-    margin-right: auto;
+  text-align: center;
+  margin-top: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .image-grid h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .gallery-item {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gallery-item img {
-    display: block;
-    width: 100%; /* Make the images fill the container */
-    height: auto; /* Maintain the aspect ratio */
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-/* Set the desired number of columns for the image gallery */
 @media (max-width: 600px) {
-    .projects-list {
-        max-width: 400px; /* Adjust the maximum width for small screens */
-    }
-    
-    .project-item {
-        flex-direction: column; /* Stack the image and content vertically */
-    }
-    
-    .project-item img {
-        margin-right: 0; /* Remove the margin on small screens */
-        margin-bottom: 20px; /* Add margin between the image and content */
-        width: 100%; /* Adjust the image width to fill the container */
-        height: auto; /* Let the image height be auto to maintain aspect ratio */
-    }
+  .projects-list {
+    max-width: 400px;
+  }
+
+  .project-item {
+    flex-direction: column;
+  }
+
+  .project-item img {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (min-width: 750px) {
-    .image-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Display 2 columns */
-        grid-gap: 20px; /* Add spacing between the images */
-    }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
 }
 
 @media (min-width: 1200px) {
-    .image-grid {
-        grid-template-columns: repeat(4, 1fr); /* Display 3 columns */
-    }
+  .image-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
