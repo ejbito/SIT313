@@ -11,6 +11,11 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 // Defines route handler for '/subscribe' endpoint
 // Email address expected in request body
 // Handles email subscription
@@ -20,6 +25,8 @@ app.post("/subscribe", (req, res) => {
   // Check if the email field is empty
   if (!email) {
     return res.status(400).json({ message: "Email is required" });
+  } else if (!isValidEmail(email)) {
+    return res.status(400).json({ message: "Invalid email address" });
   }
 
   // Represents email payload

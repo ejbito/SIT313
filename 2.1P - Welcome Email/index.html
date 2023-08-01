@@ -40,15 +40,17 @@
           },
           body: JSON.stringify({ email }),
         })
-          .then((response) => response.json())
-
-          // Display success message if email is sent
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Network response was not ok");
+            }
+          })
           .then((data) => {
             console.log(data.message);
             showSuccessMessage();
           })
-
-          // Display error message if email failed
           .catch((error) => {
             console.error(error);
             showErrorMessage("An error occurred. Please try again.");
