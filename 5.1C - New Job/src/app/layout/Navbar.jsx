@@ -12,7 +12,7 @@ import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import { NavLink } from "react-router-dom";
 
 const midLinks = [
-  { title: "New Job", path: "/new-job" },
+  { title: "Find Devs", path: "/find-devs" },
   { title: "Find Jobs", path: "/find-jobs" },
 ];
 
