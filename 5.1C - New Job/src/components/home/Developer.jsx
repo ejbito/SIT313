@@ -23,30 +23,16 @@ export default function Developer() {
         alignItems="center"
         minHeight="20vh"
       >
-        <Box mx={2}>
-          <FeaturedCard
-            name={Developers[0].name}
-            description={Developers[0].description}
-            rating={Developers[0].rating}
-            img={Developers[0].img}
-          />
-        </Box>
-        <Box mx={2}>
-          <FeaturedCard
-            name={Developers[1].name}
-            description={Developers[1].description}
-            rating={Developers[1].rating}
-            img={Developers[1].img}
-          />
-        </Box>
-        <Box mx={2}>
-          <FeaturedCard
-            name={Developers[2].name}
-            description={Developers[2].description}
-            rating={Developers[2].rating}
-            img={Developers[2].img}
-          />
-        </Box>
+        {Developers.map((developer, index) => (
+          <Box key={index} mx={2}>
+            <FeaturedCard
+              name={developer.name}
+              description={developer.description}
+              rating={developer.rating}
+              img={developer.img}
+            />
+          </Box>
+        ))}
       </Box>
       <Box
         maxWidth="lg"

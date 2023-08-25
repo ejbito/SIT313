@@ -23,30 +23,16 @@ export default function Customer() {
         alignItems="center"
         minHeight="20vh"
       >
-        <Box mx={2}>
-          <FeaturedCard
-            name={Customers[0].name}
-            description={Customers[0].description}
-            rating={Customers[0].rating}
-            img={Customers[0].img}
-          />
-        </Box>
-        <Box mx={2}>
-          <FeaturedCard
-            name={Customers[1].name}
-            description={Customers[1].description}
-            rating={Customers[1].rating}
-            img={Customers[1].img}
-          />
-        </Box>
-        <Box mx={2}>
-          <FeaturedCard
-            name={Customers[2].name}
-            description={Customers[2].description}
-            rating={Customers[2].rating}
-            img={Customers[2].img}
-          />
-        </Box>
+        {Customers.map((customer, index) => (
+          <Box key={index} mx={2}>
+            <FeaturedCard
+              name={customer.name}
+              description={customer.description}
+              rating={customer.rating}
+              img={customer.img}
+            />
+          </Box>
+        ))}
       </Box>
       <Box
         maxWidth="lg"
