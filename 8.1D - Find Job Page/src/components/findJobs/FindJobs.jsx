@@ -67,8 +67,8 @@ export default function FindJobs() {
               }}
             >
               <CardContent>
-                <Typography variant="5">{job.title}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h5">{job.title}</Typography>
+                <Typography variant="subtitle2" color="text.secondary">
                   {job.description}
                 </Typography>
                 <Typography variant="subtitle2" color="text.secondary">
@@ -81,7 +81,7 @@ export default function FindJobs() {
                   <Typography variant="subtitle2" color="text.secondary">
                     Min Payment: ${job.minPayment}
                   </Typography>
-                  <Typography variant="2" color="text.secondary">
+                  <Typography variant="subtitle2" color="text.secondary">
                     Max Payment: ${job.maxPayment}
                   </Typography>
                   <Typography variant="subtitle2" color="text.secondary">
