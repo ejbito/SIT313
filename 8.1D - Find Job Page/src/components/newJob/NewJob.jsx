@@ -12,10 +12,10 @@ import {
   FormLabel,
   Typography,
   Snackbar,
-  Alert,
   RadioGroup,
   FormControlLabel,
   Radio,
+  Alert,
 } from "@mui/material";
 
 export default function NewJob() {
@@ -24,14 +24,11 @@ export default function NewJob() {
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
   const [jobType, setJobType] = useState("");
-  const [imageURL, setImageURL] = useState(null); // Newly added
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
 
   const handleRadioChange = (event) => {
     setJobType(event.target.value);
-  };
-
-  const handleFileChange = (file) => {
-    setImageURL(file);
   };
 
   const handleFormSubmit = async (event) => {
@@ -41,9 +38,12 @@ export default function NewJob() {
       return;
     }
     const jobCollection = collection(firestore, "jobs");
-
-    // Pass the setImageURL callback to ImageUpload component
-    await setDoc(doc(jobCollection), { jobType, imageURL, ...jobDetails });
+    await setDoc(doc(jobCollection), {
+      jobType,
+      imageUrls: imageUrls,
+      ...jobDetails,
+    });
+    setImageUrls([]);
     setJobDetails({});
     setOpen(true);
   };
@@ -91,7 +91,10 @@ export default function NewJob() {
                 />
               )}
               {error && <Alert severity="error">{error}</Alert>}
-              <ImageUpload onChangeFile={handleFileChange} />
+              <ImageUpload
+                setImageUpload={setImageUpload}
+                setImageUrls={setImageUrls}
+              />
               <Box>
                 <Button type="submit" variant="contained">
                   Post

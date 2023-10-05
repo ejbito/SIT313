@@ -4,33 +4,34 @@ import {
   Grid,
   Card,
   CardContent,
-  Typography,
   TextField,
-  Button,
+  CardMedia,
+  Typography,
   Collapse,
+  Button,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, onSnapshot, collection } from "@firebase/firestore";
 import { firestore } from "../../firebase";
 
 export default function FindJobs() {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState("");
-  const navigate = useNavigate();
   const [selectedJobId, setSelectedJobId] = useState(null);
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      const jobsCol = collection(firestore, "jobs");
-      const jobSnapshot = await getDocs(jobsCol);
-      const jobList = jobSnapshot.docs.map((doc) => ({
+    const jobsRef = collection(firestore, "jobs"); // Replace "jobs" with your Firestore collection name
+    const jobsListener = onSnapshot(jobsRef, (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
-      setJobs(jobList);
-    };
 
-    fetchJobs();
+      setJobs(data);
+    });
+
+    return () => {
+      jobsListener();
+    };
   }, []);
 
   const handleDeleteJob = async (id) => {
@@ -46,8 +47,8 @@ export default function FindJobs() {
 
   const filteredJobs = jobs.filter(
     (job) =>
-      (job.title ? job.title.includes(filter) : false) ||
-      (job.skills ? job.skills.includes(filter) : false)
+      job.title.toLowerCase().includes(filter.toLowerCase()) ||
+      job.skills.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
@@ -62,17 +63,20 @@ export default function FindJobs() {
         {filteredJobs.map((job) => (
           <Grid item xs={12} md={6} lg={4} key={job.id}>
             <Card
-              onClick={() => {
-                setSelectedJobId(selectedJobId === job.id ? null : job.id);
-              }}
+              onClick={() =>
+                setSelectedJobId(selectedJobId === job.id ? null : job.id)
+              }
             >
+              {(job.imageUrls || []).map((image, index) => (
+                <CardMedia src={image} alt="img" key={index} height="140" />
+              ))}
               <CardContent>
                 <Typography variant="h5">{job.title}</Typography>
                 <Typography variant="subtitle2" color="text.secondary">
                   {job.description}
                 </Typography>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Skill Required: {job.skills}
+                  Skills Required: {job.skills}
                 </Typography>
                 <Collapse in={selectedJobId === job.id}>
                   <Typography variant="subtitle2" color="text.secondary">
